@@ -4,3 +4,5 @@ langchain-community
 faiss-cpu
 google-cloud-aiplatform
 pandas
+langchain-google-vertexai
+google-auth
