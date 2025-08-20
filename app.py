@@ -25,9 +25,8 @@ def load_vectorstore():
         for _, row in df.iterrows()
     ]
 
-    creds = service_account.Credentials.from_service_account_file(
-        "crm-inteligenze-3ede20115ea1.json"
-    )
+    credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
+    creds = service_account.Credentials.from_service_account_info(credentials_info)
 
     # Embeddings (puedes cambiar a VertexAIEmbeddings si ya tienes GCP activo)
 
@@ -56,9 +55,8 @@ def create_chain():
         return_messages=True
     )
 
-    creds = service_account.Credentials.from_service_account_file(
-        "crm-inteligenze-3ede20115ea1.json"
-    )
+    credentials_info = json.loads(os.environ["GOOGLE_CREDENTIALS_JSON"])
+    creds = service_account.Credentials.from_service_account_info(credentials_info)
 
     llm = VertexAI(model="gemini-2.5-flash", temperature=0.3, credentials=creds)
 
