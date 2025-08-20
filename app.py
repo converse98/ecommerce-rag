@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import json
+import os
 from langchain_community.vectorstores import FAISS
 from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
 from langchain.chains import ConversationalRetrievalChain
